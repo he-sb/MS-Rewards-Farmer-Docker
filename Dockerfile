@@ -7,8 +7,8 @@ ENV MSR_CHROMEVERSION=$CHROMEVERSION
 ENV CHROMEDLURL=$CHROMEURL
 
 # download and install google chrome and xvfb
-RUN wget -O /tmp/chrome.deb $CHROMEDLURL && \
-  apt-get update && apt-get install -y wget && \
+RUN apt-get update && apt-get install -y wget && \
+  wget -O /tmp/chrome.deb $CHROMEDLURL && \
   apt-get install -y /tmp/chrome.deb xvfb && \
   rm -f /tmp/chrome.deb && \
   google-chrome --version
